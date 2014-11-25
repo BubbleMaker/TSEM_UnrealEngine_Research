@@ -1,0 +1,119 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfgantt}
+
+\usepackage{color}
+\usepackage{colortbl}
+
+\usepackage{makeidx}
+
+\usepackage{listings}
+\usepackage{CJKutf8}
+
+\makeindex
+\makeatletter
+\renewenvironment{theindex}
+{
+    \thispagestyle{fancy}
+    \setlength{\parindent}{0pt}
+    \let
+    \item
+    \@idxitem
+}{\onecolumn}
+\makeatother
+
+\setlength{\parindent}{0cm}
+
+\lstset{
+    basicstyle=\ttfamily,
+    stringstyle=\ttfamily\color{green!50!black},
+    keywordstyle=\bfseries\color{blue},
+    commentstyle=\itshape\color{red!50!black},
+    showstringspaces=true,
+    tabsize=4,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    firstnumber=1,
+    stepnumber=1,
+    numbersep=5pt,
+    breaklines=true
+}
+
+\graphicspath{{img/}}
+
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\lhead{Yannick Brodard}
+\chead{}
+\rhead{\today}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{CFPT - École d'informatique}
+\cfoot{Cahier des charges}
+\rfoot{Page \thepage ~sur \pageref{LastPage}}
+
+% Niveau table des matières
+\setcounter{tocdepth}{3}
+
+% ---------------------------------------------------------------------
+
+% Titre
+\title{
+\Huge{Étude de Unreal Engine 4} \\[0.5cm]
+\LARGE{Cahier des charges}
+}
+\author{Yannick Brodard}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{center}
+    \includegraphics[scale=0.4]{UE4_logo}
+\end{center}
+\thispagestyle{empty}
+\newpage
+\section{Objectifs du projet}
+Les objectifs de ce travail sont :
+\begin{itemize}
+\item Prendre en main l'environnement Unreal Engine 4
+\item Mettre en avant les fonctionnalités intéressantes de cet environnement
+\item Réaliser un mini-jeu \textit{Galaga}-like
+\item Produire une documentation technique du projet
+\item Maintenir un journal de bords pendant la réalisation du projet
+\end{itemize}
+\section{Description détaillée}
+Le but est d'étudier l'environnement de Unreal Engine 4 et de produire un mini-jeu de genre \textit{Galaga}. Il faudra connaître cet environnement et mettre en avant ses fonctionnalités.
+
+Le mini-jeu est basé sur le jeu \textit{Galaga}. Dans ce jeu 2D, l'utilisateur contrôle un vaisseau qui peut se déplacer sur les axes x et y. Des vagues de vaisseaux ennemis vous attaquent jusqu'à ce que l'utilisateur les détruise tous.
+\section{Inventaire du matériel}
+\begin{itemize}
+\item PC 1x
+	\begin{itemize}
+	\item 1024MB NVIDIA GeForce GTX 550 Ti
+	\item Intel Core i7 2600K @ 3.40GHz
+	\item ASUSTeK Computer INC. P8Z68-V LE
+	\item 8.00 Go Dual-Channel DDR3 @ 824MHz
+	\end{itemize}
+\item Écran 2x
+\item Clavier 1x
+\item Souris 1x
+\end{itemize}
+\section{Inventaire des logiciels}
+\begin{itemize}
+\item Unreal Engine 4
+\end{itemize}
+\section{Éléments mesurables (servant à l'évaluation)}
+Réalisation des objectifs, mesurés selon la grille d'évaluation
+\end{document}
