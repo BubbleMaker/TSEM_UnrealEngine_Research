@@ -1,0 +1,114 @@
+\documentclass[11pt, a4paper, oneside]{article}
+
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfgantt}
+
+\usepackage{color}
+\usepackage{colortbl}
+
+\usepackage{makeidx}
+
+\usepackage{listings}
+\usepackage{CJKutf8}
+
+\makeindex
+\makeatletter
+\renewenvironment{theindex}
+{
+    \thispagestyle{fancy}
+    \setlength{\parindent}{0pt}
+    \let
+    \item
+    \@idxitem
+}{\onecolumn}
+\makeatother
+
+\setlength{\parindent}{0cm}
+
+\lstset{
+    basicstyle=\ttfamily,
+    stringstyle=\ttfamily\color{green!50!black},
+    keywordstyle=\bfseries\color{blue},
+    commentstyle=\itshape\color{red!50!black},
+    showstringspaces=true,
+    tabsize=4,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    firstnumber=1,
+    stepnumber=1,
+    numbersep=5pt,
+    breaklines=true
+}
+
+\graphicspath{{img/}}
+
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\lhead{Yannick Brodard}
+\chead{}
+\rhead{\today}
+\renewcommand{\footrulewidth}{0.5pt}
+\lfoot{CFPT - École d'informatique}
+\cfoot{Étude de Unreal Engine 4}
+\rfoot{Page \thepage ~sur \pageref{LastPage}}
+
+% Niveau table des matières
+\setcounter{tocdepth}{3}
+
+% ---------------------------------------------------------------------
+\begin{document}
+\begin{center}
+{\Huge{Étude de Unreal Engine 4}} \\[0.5cm]
+{\LARGE{Travail de semestre}}\\[0.5cm]
+{\Large{Yannick Brodard}}\\[0.3cm]
+\today\\
+\includegraphics[scale=0.4]{UE4_logo}
+\end{center}
+Enseignants :
+\begin{itemize}
+\item Christophe Maréchal
+\item Stéphane Garchery
+\end{itemize}
+\thispagestyle{empty}
+\newpage
+\tableofcontents
+\part{Avant-propos}
+\section{Remerciements}
+\section{Résumé}
+\section{Énoncé}
+\section{Introduction}
+\subsection{Définition du projet}
+\subsection{Définition des objectifs}
+\subsection{Préparation au travail de diplôme}
+\subsection{Cadre de travail}
+\newpage
+\part{Analyse préliminaire}
+\section{État de l'art}
+\subsection{Étude de Unreal Engine 4}
+\subsection{Galaga-like}
+\newpage
+\part{Analyse fonctionnelle}
+\section{Unreal Engine 4}
+\section{Galaga-like}
+\newpage
+\part{Analyse Organique}
+\section{Galaga-like}
+\newpage
+\part{Résultats}
+\section{Tests}
+\section{Conclusion}
+\newpage
+\part{Annexes}
+\end{document}
