@@ -13,6 +13,9 @@
 \usepackage{tikz}
 \usepackage{pgfgantt}
 
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command
+
 \usepackage{color}
 \usepackage{colortbl}
 
@@ -85,6 +88,13 @@ Enseignants :
 Technicien ES 2\textsuperscript{ème} année
 \thispagestyle{empty}
 \newpage
+\vspace*{\fill}
+\textit{Most good programmers do programmingnot because they expect to get paid or get adulation by the public, but because it is fun to program.}
+
+- Linus Torvalds
+\vspace*{\fill}
+\thispagestyle{empty}
+\newpage
 \part{Avant-propos}
 \section{Résumé}
 % A COMPLETER A LA FIN
@@ -107,7 +117,8 @@ Dans cette étude, plusieurs aspects de ce moteur seront analysés et documenté
 \end{itemize}
 Proposé par Monsieur Maréchal, l'intégration d'un périphérique 3D (le \textit{Novint Falcon 3D Touch Controller}) a été prévu pour étudier son fonctionnement et son implémentation sur ce genre d'environnement.
 \subsection{Unreal Engine 4}
-Unreal Engine est un moteur de jeu développé par Epic Games\footnote{\url{http://epicgames.com/}} qui a été présenté pour la première fois en 1998 avec un jeu FPS\footnote{First Person Shooter : Jeu de tir à la première personne} nommé \textit{Unreal}. Bien que le moteur était développé principalement pour des jeux FPS, il est aujourd'hui utilisé pour beaucoup d'autres genres comme :
+\label{sec:ue4definition}
+Unreal Engine est un moteur de jeu développé par Epic Games\footnote{\url{http://epicgames.com/}} qui a été présenté pour la première fois en 1998 avec un jeu FPS\footnote{First Person Shooter : Jeu de tir à la première personne} nommé \textit{Unreal}. Bien que le moteur était développé principalement pour des jeux FPS, il est aujourd'hui utilisé pour beaucoup d'autres genres de jeux comme :
 \begin{itemize}
 \item Infiltration
 \item Action
@@ -139,20 +150,62 @@ Le mini-jeu est basé sur le jeu \textit{Galaga}. Dans ce jeu 2D, l'utilisateur 
 
 \newpage
 \part{Analyse préliminaire}
-\section{État de l'art}
-
 \section{Analyse de l'existant}
+Concernant le mini-jeu, il y a la plateforme et le moteur sur le quel celui-ci se repose. Unreal Engine 4 permet de développer des jeux de manière beaucoup plus rapide et efficace sans ré-inventer la roue. Ceci permet d'éviter d'écrire des librairie pour, par exemple, gérer l'affichage du jeu.
+
+À propos du jeu en lui-même, il n'y a rien de codé ni préparé. Il y a la conception totale à faire.
 \section{Environnement de travail}
+\subsection{Logiciel}
+\begin{itemize}
+\item Unreal Engine 4\footnote{Pour en savoir plus sur Unreal Engine 4 voir la section \ref{sec:ue4definition} sur la page \pageref{sec:ue4definition}.}
+\item Outils de Unreal Engine 4\\
+\end{itemize}
+\subsection{Matériel}
+\begin{itemize}
+\item PC 1x
+	\begin{itemize}
+	\item 1024MB NVIDIA GeForce GTX 550 Ti
+	\item Intel Core i7 2600K @ 3.40GHz
+	\item ASUSTeK Computer INC. P8Z68-V LE
+	\item 8.00 Go Dual-Channel DDR3 @ 824MHz
+	\end{itemize}
+\item Écran 2x
+\item Clavier 1x
+\item Souris 1x
+\end{itemize}
+\subsection{Conditions de travail}
+\subsubsection{Durée}
+Le projet se déroulera sur 48 heures de cours, séparée sur 12 jours et 4 périodes par jour. C'est-à-dire, une fois par semaine, le mercredi matin, 4 périodes seront dédiées à ce projet. Il est aussi possible de travailler sur le projet en dehors des ces tranches horaires.
+\subsubsection{Délivrables}
+\begin{itemize}
+\item Un journal de bord
+\item Une copie de la documentation
+\item Un poster qui présente le projet
+\item La documentation et la source du projet seront déposées sur la plateforme Moodle du CFPT-EI.
+\end{itemize}
+\subsubsection{Suivi}
+Ce projet sera évalué et suivi par Monsieur Christophe Maréchal et Monsieur Stéphane Garchery.
 \newpage
-\part{Analyse fonctionnelle}
+\part{Étude}
 \newpage
-\part{Analyse Organique}
+\part{Analyse fonctionnelle - Jeu}
 \newpage
-\part{Étude comparative}
+\part{Analyse Organique - Jeu}
 \newpage
 \part{Résultats}
 \section{Tests}
 \section{Conclusion}
 \newpage
 \part{Annexes}
+\section{Planning}
+\subsection{Initial}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=.924, angle=90]{planninggantt}
+	\caption{Planning initial du projet}
+	\label{planningintial}
+	\end{center}
+\end{figure}
+\newpage
+\subsection{Réel}
 \end{document}
