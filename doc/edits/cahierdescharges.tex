@@ -21,6 +21,8 @@
 \usepackage{listings}
 \usepackage{CJKutf8}
 
+\usepackage{float}
+
 \makeindex
 \makeatletter
 \renewenvironment{theindex}
@@ -94,25 +96,55 @@ Les objectifs de ce travail sont :
 \item Maintenir un journal de bord pendant la réalisation du projet
 \end{itemize}
 \section{Description détaillée}
-Le but est d'étudier l'environnement de Unreal Engine 4 dans ses détails, c'est-à-dire, la programmation avec UE4, la modélisation, l'édition de différents scénarios et prise en main de la physique du moteur. Un travail avec la souris \textit{Novint Falcon 3D Touch Controller} est aussi demandé, cette souris 3D permet à l'utilisateur de reproduire des mouvement sur 3 axes qui peuvent être interprétées par l'ordinateur.
+Le but est d'étudier l'environnement de Unreal Engine 4 dans ses détails, c'est-à-dire, la programmation avec UE4, la modélisation, l'édition de différents scénarios et prise en main de la physique du moteur.
 
-\begin{figure}[h]
+Une étude comparative du moteur de jeu sera faite avec le moteur Unity 3D, cette étude est confiée à Monsieur Daniel Lopes. Les critères généraux sont les suivants :\\
+
+\begin{itemize}
+\item Programmation
+	\begin{itemize}
+	\item Langage
+	\item Facilité d'intégration
+	\end{itemize}
+\item Qualité du rendu graphique
+\item La création de scène
+	\begin{itemize}
+	\item Facilité de création
+	\end{itemize}
+\item Physiques
+\item Animations
+\item Déploiement
+	\begin{itemize}
+	\item Facilité de déploiement
+	\item Plateformes disponibles
+	\item Fonctionnalités\\
+	\end{itemize}
+\end{itemize}
+
+Le mini-jeu est basé sur le jeu \textit{Galaga}. Dans ce jeu 2D, l'utilisateur contrôle un vaisseau qui peut se déplacer sur les axes x et y. Des vagues de vaisseaux ennemis se positionnent devant le joueur pour tenter de l'éliminer. Ils se positionnent en groupe et tir sur le joueur. Le joueur doit faire de son mieux pour esquiver les tirs et doit détruire tous ses ennemis. 
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=.9, angle=90]{Galaga}
+	\caption{Une capture d'écran du jeu Galaga (Orienter à 90\degre)}
+	\end{center}
+\end{figure}
+
+Un travail avec la souris \textit{Novint Falcon 3D Touch Controller} est aussi demandé, cette souris 3D permet à l'utilisateur de reproduire des mouvement sur 3 axes qui peuvent être interprétées par l'ordinateur.
+Plusieurs possibilités d'intégrations au mini-jeu sont possibles :\\
+
+\begin{itemize}
+\item Contrôle de la caméra 3D
+\item Contrôle du vaisseau avec des fonctionnalités plus riche qu'une simple souris.
+\item etc...
+\end{itemize}
+
+\begin{figure}[H]
 	\begin{center}
 	\includegraphics[scale=.5]{falcon}
 	\caption{Souris Novint Falcon 3D Touch Controller}
 	\end{center}
 \end{figure}
-
-Une étude comparative du moteur de jeu sera faite avec le moteur Unity 3D, cette étude est confiée à Monsieur Daniel Lopes.\\[0.3cm]
-Le mini-jeu est basé sur le jeu \textit{Galaga}. Dans ce jeu 2D, l'utilisateur contrôle un vaisseau qui peut se déplacer sur les axes x et y. Des vagues de vaisseaux ennemis se positionnent devant le joueur pour tenter de l'éliminer. Ils se positionnent en groupe et tir sur le joueur. Le joueur doit faire de son mieux pour esquiver les tirs et doit détruire tous ses ennemis.
-
-\begin{figure}[h]
-	\begin{center}
-	\includegraphics[scale=1, angle=90]{Galaga}
-	\caption{Une capture d'écran du jeu Galaga (Orienter à 90\degre)}
-	\end{center}
-\end{figure}
-\newpage
 \section{Inventaire du matériel}
 \begin{itemize}
 \item PC 1x
