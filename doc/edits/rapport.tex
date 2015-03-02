@@ -24,6 +24,8 @@
 \usepackage{listings}
 \usepackage{CJKutf8}
 
+\usepackage{tabularx}
+
 \makeindex
 \makeatletter
 \renewenvironment{theindex}
@@ -107,7 +109,7 @@ Technicien ES 2\textsuperscript{ème} année
 \section{Définition du projet}
 Ce projet a été mis en place pour s'initier au développement de jeux-vidéos avec un moteur de jeu, étant donné que mon travail de diplôme sera de développer un jeu complet.
 
-Pour se faire, une étude et un travail pratique avec l'environnement Unreal Engine 4 a été proposée.
+Pour ce faire, une étude et un travail pratique avec l'environnement Unreal Engine 4 a été proposé.
 
 Dans cette étude, plusieurs aspects de ce moteur seront analysés et documentés, notamment :
 \begin{itemize}
@@ -129,7 +131,7 @@ Unreal Engine est un moteur de jeu développé par Epic Games\footnote{\url{http
 La version actuelle de UE4\footnote{Unreal Engine 4} est conçu pour fonctionner avec Microsoft DirectX 10 à 12, OpenGL et JavaScript/WebGL.
 \newpage
 \section{Définition des objectifs}
-Le but est d'étudier l'environnement de Unreal Engine 4 dans ses détails, c'est-à-dire la programmation avec UE4, la modélisation, l'édition de différents scénarios et prise en main de la physique du moteur. Un travail avec la souris \textit{Novint Falcon 3D Touch Controller} est aussi demandé, cette souris 3D permet à l'utilisateur de reproduire des mouvement sur 3 axes qui peuvent être interprétées par l'ordinateur.
+Le but est d'étudier l'environnement de Unreal Engine 4 dans ses détails, c'est-à-dire la programmation avec UE4, la modélisation, l'édition de différents scénarios et prise en main de la physique du moteur. Un travail avec la souris \textit{Novint Falcon 3D Touch Controller} est aussi demandé, cette souris 3D permet à l'utilisateur de reproduire des mouvement sur 3 axes qui peuvent être interprétés par l'ordinateur.
 
 \begin{figure}[h]
 	\begin{center}
@@ -139,19 +141,19 @@ Le but est d'étudier l'environnement de Unreal Engine 4 dans ses détails, c'es
 \end{figure}
 
 Une étude comparative du moteur de jeu sera faite avec le moteur Unity 3D, cette étude est confiée à Monsieur Daniel Lopes.\\[0.3cm]
-Le mini-jeu est basé sur le jeu \textit{Galaga}. Dans ce jeu 2D, l'utilisateur contrôle un vaisseau qui peut se déplacer sur les axes x et y. Des vagues de vaisseaux ennemis se positionnent devant le joueur pour tenter de l'éliminer. Ils se positionnent en groupe et tir sur le joueur. Le joueur doit faire de son mieux pour esquiver les tirs et doit détruire tous ses ennemis.
+Le mini-jeu est basé sur le jeu \textit{Galaga}. Dans ce jeu 2D, l'utilisateur contrôle un vaisseau qui peut se déplacer sur les axes x et y. Des vagues de vaisseaux ennemis se positionnent devant le joueur pour tenter de l'éliminer. Ils se positionnent en groupe et tirent sur le joueur. Le joueur doit faire de son mieux pour esquiver les tirs et doit détruire tous ses ennemis.
 
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=0.8, angle=90]{Galaga}
-	\caption{Un capture d'écran du jeu Galaga (Orienter à 90\degre)}
+	\includegraphics[scale=0.8]{Galaga}
+	\caption{Capture d'écran du jeu Galaga}
 	\end{center}
 \end{figure}
 
 \newpage
 \part{Analyse préliminaire}
 \section{Analyse de l'existant}
-Concernant le mini-jeu, il y a la plateforme et le moteur sur le quel celui-ci se repose. Unreal Engine 4 permet de développer des jeux de manière beaucoup plus rapide et efficace sans ré-inventer la roue. Ceci permet d'éviter d'écrire des librairie pour, par exemple, gérer l'affichage du jeu.
+Concernant le mini-jeu, il y a la plateforme et le moteur sur le quel celui-ci se repose. \mbox{Unreal Engine 4} permet de développer des jeux de manière beaucoup plus rapide et efficace sans ré-inventer la roue. Ceci permet d'éviter d'écrire des bibliothèques pour, par exemple, gérer l'affichage du jeu.
 
 À propos du jeu en lui-même, il n'y a rien de codé ni préparé. Il y a la conception totale à faire.
 \section{Environnement de travail}
@@ -196,9 +198,53 @@ Ce projet sera évalué et suivi par Monsieur Christophe Maréchal et Monsieur S
 \caption{Unreal Editor}
 \end{figure}
 \end{center}
+
+
+
 \section{Langage de programmation}
 Le langage de programmation utilisé par UE4 est le \textit{C++}, avec UE4 Unreal ont décidé de passer tous leurs langages à celui-ci et d'abandonner leur vieux langage de scripting appelé \textit{Unreal Script}.
+
+\subsection{Les macros}
+Dans le script C++, Unreal Engine 4 utilises des macros pour identifier le code dans l'éditeur. Grâce à ces macros ces éléments sont modifiables et traitable dans l'éditeur.
+\begin{table}[h]
+	\begin{center}
+		\begin{tabularx}{\textwidth}{ l l }
+			\hline
+			\textbf{Préfixe} & \textbf{Définition}\\
+			\hline
+			\hline
+			UCLASS() & Se place avant une déclaration d'une classe\\
+			UFUNCTION() & Se place avant une déclaration d'une fonction\\
+			UPROPERTY() & Se place avant une déclaration d'une variable de classe (Propriété)\\
+			UINTERFACE() & Se place avant une déclaration d'interface\\
+			USTRUCT() & Se place avant une déclaration d'une structure\\
+			\hline
+		\end{tabularx}
+		\caption{Liste des macros Unreal Engine 4}
+		\label{table:macros}
+	\end{center}
+\end{table}
+
+\subsection{Préfixes des classes UE4}
+Unreal Engine 4 possède des classes pré-faites pour le programmeur. Ces classes sont toujours précéder par un préfixe qui permet de donner petite idée du fonctionnement de la classe. Par exemple si la classe peut être \emph{spawnable}\footnote{Élément pouvant apparaitre dans le monde} ou non.
+\begin{table}[h]
+	\begin{center}
+		\begin{tabularx}{\textwidth}{ l X }
+			\hline
+			\textbf{Préfixe} & \textbf{Définition}\\
+			\hline
+			\hline
+			A & S'étend de la classe de base d'objet \emph{spawnable} du jeu. Ce sont des acteurs et peuvent apparaître directement dans le monde.\\
+			\hline
+			U & S'étend de la classe de tous les objets de gameplay. Ces classes ne peuvent pas être instancié directement dans le monde; Ils doivent appartenir à un acteur. Ce sont généralement des objets de genre "Composant".\\
+			\hline
+		\end{tabularx}
+		\caption{Préfixes des classes de Unreal Engine 4}
+		\label{table:prefixesclasses}
+	\end{center}
+\end{table}
 \newpage
+
 \section{Souris Novint Falcon 3D}
 \newpage
 \part{Analyse fonctionnelle - Jeu}
@@ -209,13 +255,13 @@ Les règles du jeu sont simple, le joueur contrôle un vaisseau et doit détruir
 \paragraph{But}
 L'objectif du jeu est de détruire le boss final pour valider la partie et avoir le plus grand score.
 \paragraph{Niveaux}
-Les niveaux sont des parties que le joueur doit accomplir pour passer au prochain niveau ou au boss final. A chaque fois que le joueur accompli un niveau, la difficulté augmente.
+Les niveaux sont des parties que le joueur doit accomplir pour passer au prochain niveau ou au boss final. À chaque fois que le joueur accompli un niveau, la difficulté augmente.
 \paragraph{Mécanismes de bases}
 Il y a quelques paramètres que chaque \emph{vivant} du jeu possède.
 \begin{description}
 \setlength{\itemindent}{-.cm}
 	\item[— Santé] Les points de vie.
-	\item[— Dégâts] Les dégâts infligés à l'adversaire. Représente les points de vie retirée à l'adversaire si le \emph{missile} le touche.
+	\item[— Dégâts] Les dégâts infligés à l'adversaire. Représente les points de vie retiré à l'adversaire si le \emph{missile} le touche.
 	\item[— Bonus] Les bonus que l'individu possède pour augmenter ses propriétés.
 \end{description}
 \subsection{Fonctionnement}
@@ -232,12 +278,29 @@ Le joueur évolue à travers le jeu grâce à des bonus qu'il peut récupérer. 
 \paragraph{Comportement}
 Le joueur perd le dernier bonus récupérer et un point de vie lorsqu'il se fait toucher par un ennemi.
 \paragraph{Contrôle}
-Le vaisseau contrôler par le joueur se trouve sur le bas de la zone jouable (de l'écran). Celui-ci peut seulement se déplacer sur 2 axes, c'est-à-dire que les mouvements disponibles sont : haut, bas, gauche, droite. L'utilisateur utilise les touches du clavier pour se déplacer dans l'environnement. Les touchent par défauts sont : 'W', 'A', 'S', 'D' et la touche 'ESPACE' pour tirer.
+Le vaisseau contrôlé par le joueur se trouve sur le bas de la zone jouable (de l'écran). Celui-ci peut seulement se déplacer sur 2 axes, c'est-à-dire que les mouvements disponibles sont : haut, bas, gauche, droite. L'utilisateur utilise les touches du clavier pour se déplacer dans l'environnement. Les touches par défaut sont :
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{|c|c|l|}
+			\hline
+			\textbf{Touche principale} & \textbf{Touche secondaire} & \textbf{Action}\\
+			\hline \hline
+			W & FLÈCHE\_HAUT & Déplacement vers le haut\\ \hline
+			S & FLÈCHE\_BAS & Déplacement vers le bas\\ \hline
+			D & FLÈCHE\_DROITE & Déplacement vers la droite\\ \hline
+			A & FLÈCHE\_GAUCHE & Déplacement vers la gauche\\ \hline
+			ESPACE & $\emptyset$ & Tirer\\
+			\hline
+		\end{tabular}
+		\caption{Touchent par défaut du jeu}
+		\label{table:touchesjeu}
+	\end{center}
+\end{table}
 \subsubsection{Ennemis}
 \paragraph{Comportement}
-Les ennemis apparaissent selon la progression du joueur ou du temps. Ils se mettent en position au centre de l'écran au dessus du joueur. Ils effectuent ensuite des manœuvres pour essayer de détruire le vaisseau joueur, soit en tirant ou en se déplacement sur l'écran.
+Les ennemis apparaissent selon la progression du joueur ou du temps. Ils se mettent en position au centre de l'écran au dessus du joueur. Ils effectuent ensuite des manœuvres pour essayer de détruire le vaisseau joueur, soit en tirant soit en se déplacent sur l'écran.
 \paragraph{Boss}
-Les boss sont des ennemi \emph{ultimes} qui se trouve a la fin de chaque niveau. Un boss possède beaucoup de points de vie, de divers bonus et des attaques qui lui sont propre.
+Les boss sont des ennemi \emph{ultimes} qui se trouve à la fin de chaque niveau. Un boss possède beaucoup de points de vie, de divers bonus et des attaques qui lui sont propres.
 \subsubsection{Environnement}
 L'environnement 
 \section{Interface homme-machine}
@@ -278,4 +341,6 @@ L'environnement
 \end{enumerate}
 \newpage
 \listoffigures
+\newpage
+\listoftables
 \end{document}
