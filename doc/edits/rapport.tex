@@ -251,9 +251,9 @@ Unreal Engine 4 possède des classes pré-faites pour le programmeur. Ces classe
 \section{Fonctionnalités}
 \subsection{Règles du jeu}
 \paragraph{Introduction}
-Les règles du jeu sont simple, le joueur contrôle un vaisseau et doit détruire le plus d'ennemis possible avant d'affronter le boss. Chaque ennemi détruit donne des points au joueur.
+Les règles du jeu sont simple, le joueur contrôle un vaisseau et doit détruire le plus d'ennemis possible avant d'affronter un boss\footnote{Un boss est une unité ennemi qui possède plus de points de vie et d'attaques pour détruire le vaisseau du joueur}. Chaque ennemi détruit donne des points au joueur.
 \paragraph{But}
-L'objectif du jeu est de détruire le boss final pour valider la partie et avoir le plus grand score.
+L'objectif du jeu est de détruire le boss final\footnote{Le boss final ne possède pas plus de caractéristiques qu'un boss normal, mais permet de terminer le jeu} pour valider la partie et avoir le plus grand score.
 \paragraph{Niveaux}
 Les niveaux sont des parties que le joueur doit accomplir pour passer au prochain niveau ou au boss final. À chaque fois que le joueur accompli un niveau, la difficulté augmente.
 \paragraph{Mécanismes de bases}
@@ -262,7 +262,7 @@ Il y a quelques paramètres que chaque \emph{vivant} du jeu possède.
 \setlength{\itemindent}{-.cm}
 	\item[— Santé] Les points de vie.
 	\item[— Dégâts] Les dégâts infligés à l'adversaire. Représente les points de vie retiré à l'adversaire si le \emph{missile} le touche.
-	\item[— Bonus] Les bonus que l'individu possède pour augmenter ses propriétés.
+	\item[— Bonus] Les bonus que l'individu possède pour augmenter ses propriétés (Santé et Dégâts).
 \end{description}
 \subsection{Fonctionnement}
 \subsubsection{Joueur}
@@ -300,10 +300,29 @@ Le vaisseau contrôlé par le joueur se trouve sur le bas de la zone jouable (de
 \paragraph{Comportement}
 Les ennemis apparaissent selon la progression du joueur ou du temps. Ils se mettent en position au centre de l'écran au dessus du joueur. Ils effectuent ensuite des manœuvres pour essayer de détruire le vaisseau joueur, soit en tirant soit en se déplacent sur l'écran.
 \paragraph{Boss}
-Les boss sont des ennemi \emph{ultimes} qui se trouve à la fin de chaque niveau. Un boss possède beaucoup de points de vie, de divers bonus et des attaques qui lui sont propres.
-\subsubsection{Environnement}
-L'environnement 
+Les boss sont des ennemi \emph{ultimes} qui se trouve à la fin de chaque niveau. Un boss possède assez de points de vie pour que le niveau final dure environ 2 minutes ou plus (varie selon la difficulté), de divers bonus et des attaques qui lui sont propres.
 \section{Interface homme-machine}
+\subsection{Écran du jeu}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.2]{interface}
+	\caption{Maquette de l'interface du jeu}
+	\end{center}
+\end{figure}
+\includegraphics[scale=0.1]{joueur} Vaisseau du joueur\\[0.2cm]
+\includegraphics[scale=0.2]{pointdevie} Point de vie du joueur\\[0.2cm]
+\includegraphics[scale=0.1]{bonus} Bonus que le joueur possède\\[0.2cm]
+\includegraphics[scale=0.2]{ennemi} Unité ennemi\\[0.2cm]
+\includegraphics[scale=0.05]{boss} Boss ennemi
+\newpage
+\subsection{Menu du jeu}
+Le menu du jeu est très basique, il possède :
+\begin{itemize}
+	\item Bouton pour démarrer une nouvelle partie
+	\item Slider pour régler la difficulté du jeu
+	\item Bouton pour afficher les scores
+	\item Bouton pour quitter l'application
+\end{itemize}
 \newpage
 \part{Analyse Organique - Jeu}
 \newpage
