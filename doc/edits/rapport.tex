@@ -191,7 +191,6 @@ Ce projet sera évalué et suivi par Monsieur Christophe Maréchal et Monsieur S
 \newpage
 \part{Étude Unreal Engine 4}
 \section{Unreal Editor}
-% A mettre en ordre...
 \begin{center}
 \begin{figure}[htp]
 \includegraphics[scale=.39]{ue4editor}
@@ -199,7 +198,38 @@ Ce projet sera évalué et suivi par Monsieur Christophe Maréchal et Monsieur S
 \end{figure}
 \end{center}
 
+\subsection{Bar de contrôle}
+La bar de contrôle permet de gérer les points important du projet, comme la sauvegarde, le contenu, les \emph{blueprints}, la génération et la compilation.
 
+\paragraph{Save} permet de sauvegarder le projet.
+\paragraph{Source Control} vérifie l'intégrité du projet.
+\paragraph{Content} affiche les contenus.
+\paragraph{Marketplace} permet de naviguer dans la marché de UE4 pour télécharger du contenu.
+\paragraph{Settings} permet de modifier les paramètres du projet.
+\paragraph{Matinee} permet de gérer les animations.
+\paragraph{Build} génère votre projet.
+\paragraph{Compile} compile votre code C++ pour l'éditeur.
+\paragraph{Play} permet de jouer directement sur l'éditeur.
+\paragraph{Launch} permet de générer la version finale du produit.
+
+\begin{center}
+\begin{figure}[htp]
+\includegraphics[scale=.8]{bardecontrole}
+\caption{Bar de contrôle de l'éditeur}
+\end{figure}
+\end{center}
+
+\subsection{Blueprints (Plans)}
+Les \emph{Blueprints} sont des plans qui permettent d'ajouter des fonctionnalités à un objet ou une classe sans devoir passer par du code C++.
+
+\subsection{Mesh (Maillage)}
+Les système de maillage est le squelette de votre objet (ou personnage). Il permet de lui donner des logiques de collision et d'animation.
+
+\subsection{Entrées des périphériques}
+
+
+\subsection{Configuration de la camera}
+\subsection{Modifications du moteur physique}
 
 \section{Langage de programmation}
 Le langage de programmation utilisé par UE4 est le \textit{C++}, avec UE4 Unreal ont décidé de passer tous leurs langages à celui-ci et d'abandonner leur vieux langage de scripting appelé \textit{Unreal Script}.
@@ -244,17 +274,16 @@ Unreal Engine 4 possède des classes pré-faites pour le programmeur. Ces classe
 	\end{center}
 \end{table}
 
-\subsection{Raw info}
-Gamemode : classe qui définie le genre de jeu
-
-Blueprint : codé les objets/classes avec une interface
-
-Character : Personnage physique
-
-Mesh : Model de l'objet
-
-Assignation des inputs
-
+\subsection{Classes}
+Il est possible de créer ses propres classes avec l'éditeur. Ceux-ci sont ajoutés au projet et sont modifiables.
+\subsubsection{Gamemode}
+Gamemode contient la définition du jeu lui-même, comme les règles, les conditions de victoire, etc. Il met aussi en place les classes par défaut à utiliser pour du gameplay du framework basique, comme \textit{Pawn, PlayerController}, et l'\textit{HUD}.
+\subsubsection{Actor}
+Actor est la classe de base d'un objet qui peut se placer sur le monde.
+\subsubsection{Pawn}
+Pawn est la classe de base de tous les \emph{actor} qui peuvent être contrôler par un utilisateur ou une IA.
+\subsubsection{Character}
+Les \emph{Characters} sont des \emph{Pawns} qui possèdent un maillage, collisions et des mouvements logiques intégrés.
 
 \section{Souris Novint Falcon 3D}
 \newpage
