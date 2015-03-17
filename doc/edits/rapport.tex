@@ -201,16 +201,18 @@ Ce projet sera évalué et suivi par Monsieur Christophe Maréchal et Monsieur S
 \subsection{Bar de contrôle}
 La bar de contrôle permet de gérer les points important du projet, comme la sauvegarde, le contenu, les \emph{blueprints}, la génération et la compilation.
 
-\paragraph{Save} permet de sauvegarder le projet.
-\paragraph{Source Control} vérifie l'intégrité du projet.
-\paragraph{Content} affiche les contenus.
-\paragraph{Marketplace} permet de naviguer dans la marché de UE4 pour télécharger du contenu.
-\paragraph{Settings} permet de modifier les paramètres du projet.
-\paragraph{Matinee} permet de gérer les animations.
-\paragraph{Build} génère votre projet.
-\paragraph{Compile} compile votre code C++ pour l'éditeur.
-\paragraph{Play} permet de jouer directement sur l'éditeur.
-\paragraph{Launch} permet de générer la version finale du produit.
+\begin{description}
+	\item{\textbf{Save}} permet de sauvegarder le projet.
+	\item{\textbf{Source Control}} vérifie l'intégrité du projet.
+	\item{\textbf{Content}} affiche les contenus.
+	\item{\textbf{Marketplace}} permet de naviguer dans la marché de UE4 pour télécharger du contenu.
+	\item{\textbf{Settings}} permet de modifier les paramètres du projet.
+	\item{\textbf{Matinee}} permet de gérer les animations.
+	\item{\textbf{Build}} génère votre projet.
+	\item{\textbf{Compile}} compile votre code C++ pour l'éditeur.
+	\item{\textbf{Play}} permet de jouer directement sur l'éditeur.
+	\item{\textbf{Launch}} permet de générer la version finale du produit.
+\end{description}
 
 \begin{center}
 \begin{figure}[htp]
@@ -220,15 +222,20 @@ La bar de contrôle permet de gérer les points important du projet, comme la sa
 \end{center}
 
 \subsection{Blueprints (Plans)}
-Les \emph{Blueprints} sont des plans qui permettent d'ajouter des fonctionnalités à un objet ou une classe sans devoir passer par du code C++.
+Les \emph{Blueprints} sont des plans qui permettent d'ajouter des fonctionnalités à un objet ou une classe sans devoir passer par du code C++.\\[.4cm]
+\textbf{Exemple - Configuration d'une caméra statique}
+\begin{center}
+\begin{figure}[htp]
+\includegraphics[scale=.8]{blueprint}
+\caption{\emph{Blueprint} du niveau pour fixer une caméra statique}
+\end{figure}
+\end{center}
 
 \subsection{Mesh (Maillage)}
 Les système de maillage est le squelette de votre objet (ou personnage). Il permet de lui donner des logiques de collision et d'animation.
 
 \subsection{Entrées des périphériques}
 
-
-\subsection{Configuration de la camera}
 \subsection{Modifications du moteur physique}
 
 \section{Langage de programmation}

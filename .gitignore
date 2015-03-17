@@ -9,7 +9,6 @@ doc/edits/rapport.pdf
 *.psd
 *.lof
 doc/edits/rapport.lof
-doc/edits/rapport.lof
 *.lot
 
 src/Galadard/
