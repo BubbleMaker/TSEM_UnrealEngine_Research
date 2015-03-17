@@ -199,7 +199,7 @@ Ce projet sera évalué et suivi par Monsieur Christophe Maréchal et Monsieur S
 \end{center}
 
 \subsection{Bar de contrôle}
-La bar de contrôle permet de gérer les points important du projet, comme la sauvegarde, le contenu, les \emph{blueprints}, la génération et la compilation.
+La bar de contrôle permet de gérer les points important du projet, comme la sauvegarde, le contenu, les \emph{blueprints}, la génération et la compilation (voir figure \ref{fig:bardecontrole}).
 
 \begin{description}
 	\item{\textbf{Save}} permet de sauvegarder le projet.
@@ -218,6 +218,7 @@ La bar de contrôle permet de gérer les points important du projet, comme la sa
 \begin{figure}[htp]
 \includegraphics[scale=.8]{bardecontrole}
 \caption{Bar de contrôle de l'éditeur}
+\label{fig:bardecontrole}
 \end{figure}
 \end{center}
 
@@ -228,16 +229,58 @@ Les \emph{Blueprints} sont des plans qui permettent d'ajouter des fonctionnalit�
 \begin{figure}[htp]
 \includegraphics[scale=.8]{blueprint}
 \caption{\emph{Blueprint} du niveau pour fixer une caméra statique}
+\label{fig:blueprint}
 \end{figure}
 \end{center}
 
+Avec l'éditeur de \emph{Blueprint}, il est possible de placer directement des fonctions, des actions et des méthodes dans cette interface graphique afin de produire du code pour le jeu (Voir figure \ref{fig:blueprint}).
+
+\emph{Event Begin Play} est la méthode de démarrage et action une fonction \emph{Set View Target with Blend} qui permet de mettre en place la caméra utilisée par le jeu. \emph{Get Player Controller} est un \emph{getter} qui permet de récupérer le contrôleur du joueur, il est ensuite lié à la cible \emph{target} de la fonction. La caméra de notre scène est lié comme cible pour la vue par défaut.
+
+Il est ainsi possible grâce à l'utilisation de \emph{Blueprints} de programmer un jeu complet sans toucher au code.
+
+\newpage
+
 \subsection{Mesh (Maillage)}
-Les système de maillage est le squelette de votre objet (ou personnage). Il permet de lui donner des logiques de collision et d'animation.
+Le système de maillage est le squelette de votre objet (ou personnage). Il permet de lui donner des logiques de collision et d'animation.
+
+\begin{center}
+\begin{figure}[htp]
+\includegraphics[scale=.47]{mesh}
+\caption{\emph{Matinee} est l'outil utilisé pour l'édition des \emph{meshes}}
+\label{fig:mesh}
+\end{figure}
+\end{center}
+
+Sur la coin en haut à droite se trouve 3 modes de vision: "Skeleton", "Mesh" et "Animation" (voir figure \ref{fig:blueprint}). "Skeleton" permet de modifier directement le squelette du model. "Mesh" permet d'apporter des modification au model dans l'ensemble, incluant les textures et objets supplémentaires. "Animation" permet de gérer les animations du model.
+
+\newpage
 
 \subsection{Entrées des périphériques}
+\begin{center}
+\begin{figure}[htp]
+\includegraphics[scale=.58]{input}
+\caption{Fenêtre d'édition des entrées de périphériques}
+\label{fig:input}
+\end{figure}
+\end{center}
 
-\subsection{Modifications du moteur physique}
+Les entrées de périphérique se font dans \emph{"/Edit/Project Settings/Engine/Input/"}. Depuis cette fenêtre il est possible d'ajouter des entrées de périphériques qui pourront être utilisés dans les \emph{blueprints} ou dans le code.
 
+\lstset{language=C++}
+\begin{lstlisting}[frame=single, caption={Exemple de code pour lié des entrées de périphériques à des méthodes de classe}, captionpos=b]  % Start your code-block
+
+// Called to bind functionality to input
+void AShaceShipCharacter::SetupPlayerInputComponent(class UInputComponent* InputComponent) {
+  InputComponent->BindAxis("MoveForward", this, &AShaceShipCharacter::MoveForward);
+  InputComponent->BindAxis("MoveSideWays", this, &AShaceShipCharacter::MoveSideWays);
+  InputComponent->BindAction("Fire", IE_Pressed, this, &AShaceShipCharacter::OnFire);
+}
+\end{lstlisting}
+
+%\subsection{Modifications du moteur physique}
+
+\newpage
 \section{Langage de programmation}
 Le langage de programmation utilisé par UE4 est le \textit{C++}, avec UE4 Unreal ont décidé de passer tous leurs langages à celui-ci et d'abandonner leur vieux langage de scripting appelé \textit{Unreal Script}.
 
@@ -292,7 +335,7 @@ Pawn est la classe de base de tous les \emph{actor} qui peuvent être contrôler
 \subsubsection{Character}
 Les \emph{Characters} sont des \emph{Pawns} qui possèdent un maillage, collisions et des mouvements logiques intégrés.
 
-\section{Souris Novint Falcon 3D}
+%\section{Souris Novint Falcon 3D}
 \newpage
 \part{Analyse fonctionnelle - Jeu}
 \section{Fonctionnalités}
@@ -372,6 +415,17 @@ Le menu du jeu est très basique, il possède :
 \end{itemize}
 \newpage
 \part{Analyse Organique - Jeu}
+\section{Mode de jeu}
+\newpage
+\section{Personnage}
+\newpage
+\section{Caméra}
+\newpage
+\section{Maillage}
+\newpage
+\section{Projectiles}
+\newpage
+\section{Collisions}
 \newpage
 \part{Tests}
 \newpage
@@ -407,6 +461,6 @@ Le menu du jeu est très basique, il possède :
 \end{enumerate}
 \newpage
 \listoffigures
-\newpage
 \listoftables
+\lstlistoflistings
 \end{document}
