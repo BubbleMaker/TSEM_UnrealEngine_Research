@@ -26,6 +26,9 @@
 
 \usepackage{tabularx}
 
+%arborescence
+\usepackage{dirtree}
+
 \makeindex
 \makeatletter
 \renewenvironment{theindex}
@@ -89,19 +92,11 @@ Enseignants :
 Technicien ES 2\textsuperscript{ème} année
 \thispagestyle{empty}
 \newpage
-\vspace*{\fill}
-\begin{flushright}
-\textit{Every good idea borders on the stupid.}\\[0.3cm]
-- Michel \textsc{Gondry}
-\end{flushright}
-\vspace*{\fill}
-\thispagestyle{empty}
-\newpage
 \part{Avant-propos}
 \section{Résumé}
-% A COMPLETER A LA FIN
-\section{Remerciements}
-% A COMPLETER A LA FIN
+Le but de ce projet est d'étudier l'environnement de développement de jeux, {Unreal~Engine~4}. Les outils, composants et manières de codés sont identifiés. Un jeu exemple est fourni avec l'étude. Ce jeu est une imitation du jeu Galaga. En utilisant les compétences acquises avec la recherche, le jeu est entièrement construit avec le savoir-faire. Le travail s'est conclu avec une recherche me satisfaisant et m'a fait découvrir le monde du développement de jeux conséquents, mais le jeu exemple n'est malheureusement pas terminé et requiert plus de développement.
+\section{Abstract}
+The objective of this project is to study the development environment for games, here Unreal Engine 4. The tools, components and ways to code are identified. An example of a game is given to the study. This game is an imitation of Galaga. By using the skills acquired with the research, the game is done with this knowledge. The work concludes with a satisfying research work and it allowed me to understand more the development of big games, but the game example wasn't finished and demands more development.
 \newpage
 \tableofcontents
 \newpage
@@ -198,8 +193,8 @@ Ce projet sera évalué et suivi par Monsieur Christophe Maréchal et Monsieur S
 \end{figure}
 \end{center}
 
-\subsection{Bar de contrôle}
-La bar de contrôle permet de gérer les points important du projet, comme la sauvegarde, le contenu, les \emph{blueprints}, la génération et la compilation (voir figure \ref{fig:bardecontrole}).
+\subsection{Barre de contrôle}
+La barre de contrôle permet de gérer les points importants du projet, comme la sauvegarde, le contenu, les \emph{blueprints}, la génération et la compilation (voir figure \ref{fig:bardecontrole}).
 
 \begin{description}
 	\item{\textbf{Save}} permet de sauvegarder le projet.
@@ -233,9 +228,9 @@ Les \emph{Blueprints} sont des plans qui permettent d'ajouter des fonctionnalit�
 \end{figure}
 \end{center}
 
-Avec l'éditeur de \emph{Blueprint}, il est possible de placer directement des fonctions, des actions et des méthodes dans cette interface graphique afin de produire du code pour le jeu (Voir figure \ref{fig:blueprint}).
+Avec l'éditeur de \emph{Blueprint}, il est possible de placer directement des fonctions, des actions et des méthodes dans cette interface graphique afin de produire du code pour le jeu (voir figure \ref{fig:blueprint}).
 
-\emph{Event Begin Play} est la méthode de démarrage et action une fonction \emph{Set View Target with Blend} qui permet de mettre en place la caméra utilisée par le jeu. \emph{Get Player Controller} est un \emph{getter} qui permet de récupérer le contrôleur du joueur, il est ensuite lié à la cible \emph{target} de la fonction. La caméra de notre scène est lié comme cible pour la vue par défaut.
+\emph{Event Begin Play} est la méthode de démarrage et action une fonction \emph{Set View Target with Blend} qui permet de mettre en place la caméra utilisée par le jeu. \emph{Get Player Controller} est un \emph{getter} qui permet de récupérer le contrôleur du joueur, il est ensuite lié à la cible \emph{target} de la fonction. La caméra de notre scène est liée comme cible pour la vue par défaut.
 
 Il est ainsi possible grâce à l'utilisation de \emph{Blueprints} de programmer un jeu complet sans toucher au code.
 
@@ -252,7 +247,7 @@ Le système de maillage est le squelette de votre objet (ou personnage). Il perm
 \end{figure}
 \end{center}
 
-Sur la coin en haut à droite se trouve 3 modes de vision: "Skeleton", "Mesh" et "Animation" (voir figure \ref{fig:blueprint}). "Skeleton" permet de modifier directement le squelette du model. "Mesh" permet d'apporter des modification au model dans l'ensemble, incluant les textures et objets supplémentaires. "Animation" permet de gérer les animations du model.
+Sur le coin en haut à droite se trouve 3 modes de vision: "Skeleton", "Mesh" et "Animation" (voir figure \ref{fig:blueprint}). "Skeleton" permet de modifier directement le squelette du modèle. "Mesh" permet d'apporter des modifications au modèle dans l'ensemble, incluant les textures et objets supplémentaires. "Animation" permet de gérer les animations du modèle.
 
 \newpage
 
@@ -265,7 +260,7 @@ Sur la coin en haut à droite se trouve 3 modes de vision: "Skeleton", "Mesh" et
 \end{figure}
 \end{center}
 
-Les entrées de périphérique se font dans \emph{"/Edit/Project Settings/Engine/Input/"}. Depuis cette fenêtre il est possible d'ajouter des entrées de périphériques qui pourront être utilisés dans les \emph{blueprints} ou dans le code.
+Les entrées de périphérique se font dans \emph{"/Edit/Project Settings/Engine/Input/"}. Depuis cette fenêtre il est possible d'ajouter des entrées de périphériques qui pourront être utilisées dans les \emph{blueprints} ou dans le code.
 
 \lstset{language=C++}
 \begin{lstlisting}[frame=single, caption={Exemple de code pour lié des entrées de périphériques à des méthodes de classe}, captionpos=b]  % Start your code-block
@@ -282,10 +277,10 @@ void AShaceShipCharacter::SetupPlayerInputComponent(class UInputComponent* Input
 
 \newpage
 \section{Langage de programmation}
-Le langage de programmation utilisé par UE4 est le \textit{C++}, avec UE4 Unreal ont décidé de passer tous leurs langages à celui-ci et d'abandonner leur vieux langage de scripting appelé \textit{Unreal Script}.
+Le langage de programmation utilisé par UE4 est le \textit{C++}, avec UE4 Unreal a décidé de passer tous leurs langages à celui-ci et d'abandonner leur vieux langage de scripting appelé \textit{Unreal Script}.
 
 \subsection{Les macros}
-Dans le script C++, Unreal Engine 4 utilises des macros pour identifier le code dans l'éditeur. Grâce à ces macros ces éléments sont modifiables et traitable dans l'éditeur.
+Dans le script C++, Unreal Engine 4 utilise des macros pour identifier le code dans l'éditeur. Grâce à ces macros ces éléments sont modifiables et traitables dans l'éditeur.
 \begin{table}[h]
 	\begin{center}
 		\begin{tabularx}{\textwidth}{ l l }
@@ -331,7 +326,7 @@ Gamemode contient la définition du jeu lui-même, comme les règles, les condit
 \subsubsection{Actor}
 Actor est la classe de base d'un objet qui peut se placer sur le monde.
 \subsubsection{Pawn}
-Pawn est la classe de base de tous les \emph{actor} qui peuvent être contrôler par un utilisateur ou une IA.
+Pawn est la classe de base de tous les \emph{actor} qui peuvent être contrôlés par un utilisateur ou une IA.
 \subsubsection{Character}
 Les \emph{Characters} sont des \emph{Pawns} qui possèdent un maillage, collisions et des mouvements logiques intégrés.
 
@@ -415,40 +410,200 @@ Le menu du jeu est très basique, il possède :
 \end{itemize}
 \newpage
 \part{Analyse Organique - Jeu}
+\section{Arborescence du projet}
+\dirtree{%
+.1 Engine.
+.1 Games.
+.2 GaladardShooter.
+.3 Config.
+.4 DefaultEditor.ini.
+.4 DefaultEngine.ini.
+.4 DefaultInput.ini.
+.3 Source.
+.4 GaladardShooter.
+.5 Resources.
+.6 Windows.
+.7 GaladardShooter.rc.
+.5 GaladardShooter.Build.cs.
+.5 GaladardShooter.cpp.
+.5 GaladardShooter.h.
+.5 ShaceShipCharacter.cpp.
+.5 ShaceShipCharacter.h.
+.5 ShooterGameMode.cpp.
+.5 ShooterGameMode.h.
+.5 ShooterProjectile.cpp.
+.5 ShooterProjectile.h.
+.4 GaladardShooter.Target.cs.
+.4 GaladardShooterEditor.Target.cs.
+.4 GaladardShooter.uproject.
+}
+
+\newpage
 \section{Mode de jeu}
+Le mode de jeu par défaut de UE4 est remplacé par une classe vide pour retirer tous les fonctionnalités par défaut qui sont indésirés.
+
+\begin{figure}[htp]
+	\begin{center}
+	\includegraphics[scale=.25]{ShooterGameMode}
+	\caption{Diagramme de classe de \emph{ShooterGameMode}}
+	\label{fig:shootergamemode}
+	\end{center}
+\end{figure}
+
+Le constructeur permet de mettre en place un \emph{blueprint} qui ajoute le joueur dans le monde. Le \emph{StartPlay} permet de démarrer le jeu et d'afficher un message de confirmation sur l'écran pendant 5 secondes.
+
+\begin{figure}[htp]
+	\begin{center}
+	\includegraphics[width=\textwidth]{ShooterGameModeFlow}
+	\caption{Diagramme de flux du constructeur de la classe \emph{ShooterGameMode}}
+	\label{fig:shootergamemodeflow}
+	\end{center}
+\end{figure}
+
 \newpage
 \section{Personnage}
-\newpage
-\section{Caméra}
-\newpage
-\section{Maillage}
+Le personnage du jeu est associé au modèle prototype de Unreal Engine, parce qu'il serait beaucoup trop long et complexe de faire un modèle et ça ne correspond pas au métier d'informaticien. Le maillage du modèle est chargé dans un \emph{blueprint} (voir figure \ref{fig:characterbp}).
+
+\begin{figure}[htp]
+	\begin{center}
+	\includegraphics[width=\textwidth]{characterBP}
+	\caption{\emph{Blueprint} du personnage utilisé dans le jeu}
+	\label{fig:characterbp}
+	\end{center}
+\end{figure}
+
+Pour contrôler ce personnage, une classe a été créée. Il hérite de la classe \emph{Character} qui est un classe intégrée à Unreal Engine qui définie tous personnage réagissant aux fonctions logiques du moteur, par exemple, la physique et le déplacement. La classe du personnage, \emph{ShaceShipCharacter}, possède des actions de mouvement et de tir (voir figure \ref{fig:shaceshipcharacter}).
+
+Lors de la création du personnage, le moteur lie les entrées spécifiés dans le système à l'objet si celui-ci possède les mêmes noms (voir figure \ref{fig:shaceshipcharacterflow}).
+
+Les mouvements latéraux et avants / arrières sont gérés avec le \emph{Controller}, une propriété que les classes héritant de \emph{Character} possède, qui permet de gérer le contrôle du personnage avec les entrées de périphériques. Pour le fonctionnement des mouvements latéraux voir le listing \ref{lst:gstmvntlat} et la figure \ref{fig:movementflow}.
+
+Le tir du personnage sont des objets (\emph{ShooterProjectile}) qui sont créés par le biais du personnage. Le projectile est tiré en avant et apparaît sur la position du \emph{muzzle}\footnote{La position définie dans l'éditeur du \emph{blueprint} du personnage} qui évite que celui-ci n'apparaisse dans le personnage. \\[2cm]
+
+\begin{figure}[p]
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{ShaceShipCharacter}
+	\caption{Diagramme de classe de \emph{ShaceShipCharacter}}
+	\label{fig:shaceshipcharacter}
+	\end{center}
+\end{figure}
+
+\begin{figure}[p]
+	\begin{center}
+	\includegraphics[width=0.7\textwidth]{ShaceShipCharacterFlow}
+	\caption{Diagramme de flux du démarrage de \emph{ShaceShipCharacter}}
+	\label{fig:shaceshipcharacterflow}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=\textwidth]{MovementFlow}
+	\caption{Diagramme de flux du déplacement du personnage}
+	\label{fig:movementflow}
+	\end{center}
+\end{figure}
+
+\lstset{language=C++}
+\begin{lstlisting}[frame=single, caption={Gestion des mouvement latéraux}, captionpos=b, label=lst:gstmvntlat]  % Start your code-block
+
+// Moves the character sideways depending on the input value
+// Determines the direction the character is facing and applies
+//   the correct movement and direction to the character
+void AShaceShipCharacter::MoveSideWays(float Value)
+{
+  if ((Controller != NULL) && (Value != 0.0f))
+  {
+    // find out which way is right
+    const FRotator Rotation = Controller->GetControlRotation();
+    const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::Y);
+    // add movement in that direction
+    AddMovementInput(Direction, Value);
+  }
+}
+\end{lstlisting}
+
 \newpage
 \section{Projectiles}
-\newpage
+Les projectiles sont des objets qui sont utilisés par le personnage, contrôlé par le joueur, pour tirer. Ils sont instanciés au moment du tir dans la direction que le personnage fait face.
+
+\begin{figure}[htp]
+	\begin{center}
+	\includegraphics[width=\textwidth]{ProjectileUML}
+	\caption{Diagramme de classe de \emph{ShooterProjectile}}
+	\label{fig:projectileuml}
+	\end{center}
+\end{figure}
 \section{Collisions}
+Pour faire des collisions avec les objets personnalisés, il est nécessaire de directement modifier les fichiers d'initialisation du moteur.
+
+Il faut ajouter un canal de réponse par défaut au profil de collision du moteur et d'indiquer quel éléments y sont affecté (voir listing \ref{lst:enginemodif}).
+
+\begin{lstlisting}[frame=single, caption={Paramètres a ajouter au moteur par défaut}, captionpos=b, label=lst:enginemodif]  % Start your code-block
+
+// Declacration of the new channel
+[/Script/Engine.CollisionProfile]
++DefaultChannelResponses=(Channel=ECC_GameTraceChannel1, Name=Projectile)
+
+// Elements added to the channel
++Profiles=(Name="Projectile", CollisionEnabled=QueryOnly,ObjectTypeName=Projectile, CustomResponses=( \
+   (Channel=Static,            Response=ECR_Block), \
+   (Channel=PawnMovement,      Response=ECR_Block), \
+   (Channel=Dynamic,           Response=ECR_Block), \
+   (Channel=PhysicsBody,       Response=ECR_Block), \
+   (Channel=VehicleMovement,   Response=ECR_Block), \
+   (Channel=Destructible,      Response=ECR_Block) \
+   ))
+}
+\end{lstlisting}
 \newpage
 \part{Tests}
+\begin{center}
+	\includegraphics[width=\textwidth]{tests}
+\end{center}
 \newpage
-\part{Résultats} 
+\part{Conclusion}
 \section{Conclusion technique}
-\section{Bilan de la recherche}
-\section{Améliorations}
+\subsection{Bilan de l'étude}
+La cible visée de l'étude était de connaître de manière plus approfondie les méthodes utilisées dans le monde professionnel du jeu vidéo de grande taille. Bien que ces produits soient simplifiés et optimiser pour le développement de ces produits divertissants, ceci demande tout de même un travail considérable et bien réfléchi. La recherche ma permis de comprendre ces fonctionnements de manière explicite. Il est clair qu'avec ce travail, je n'ai qu'éraflé la pointe de l'iceberg, mais j'ai tout de même appris et observer beaucoup de ces accessoires et ça m'a permis d'acquérir les connaissances de fondamentales. Il est très intéressant d'observer que ce genre de développement avec un tel outil est considérablement différent par rapport au développement d'applications lambda.
+
+\subsection{Bilan du jeu exemple}
+Le but de ce jeu était de tester mes connaissances avec les données acquises de l'étude. Le résultat final montre clairement qu'il faut apporter un travail plus important pour présenter un produit vendable. Celui-ci est malheureusement non-acquis, car le travail fourni était insuffisant, la durée du projet était mal calculée et le jeu ne correspond pas à l'analyse fonctionnelle faite, mais j'ai tous de même pu développer un semblant de prototype d'un jeu. J'ai pu apprendre de mes erreurs de planifications et même de programmation. Unreal Engine 4 s'est avéré comme un éditeur très complexe à utiliser par rapport à \emph{Unity} (des cours de \emph{Unity} ont été donnés par M. Aliprandi, et il s'est montré plus simple d'utilisation de mon point de vue personnel).
+
+\subsection{Améliorations}
+Il serait possible de fournir d'amples améliorations pour le jeu comme : les ennemis, une IA, etc. mais ceci aurait demander beaucoup plus de temps de travail (je donne une estimation d'environ 1 mois de plus).
+\newpage
 \section{Conclusion personnelle}
-\section{Apport personnel}
-\section{Gestion du temps}
+\subsection{Bilan personnel}
+Sur l'étude, je suis satisfait de mes recherches, car ceci a pu me faire changer d'avis par rapport au développement de gros jeux et ma plutôt faite tourner ma tête en direction de \emph{Unity} qui est plus ciblée pour les jeux de petite taille (bien qu'il soit possible de faire des jeux de tailles importantes avec l'outil).\\[0.2cm]
+Je suis assez déçu de moi-même par rapport au développement du jeu exemple de cette recherche, car il ne correspond en rien avec le produit que je voulais produire. Malheureusement j'ai été emporter par plusieurs événements qui ne m'ont pas permis de fournir la quantité et qualité de travail souhaité.
+
+\subsection{Apport personnel}
+La recherche a été faite avec l'aide du site officiel de Unreal Engine et de quelques tutoriels trouvés sur Internet. La totalité du jeu a été fait par moi-même avec les composants et fonctionnalités apprises pendant l'étude, aucun tutoriel ne correspondait au jeu que je voulais réaliser donc j'ai dû me lancer par instinct pour le réaliser.
+
+\subsection{Gestion du temps}
+Une estimation de 70\% du travail fourni était dédié à l'étude, mais le travail fourni en lui-même n'était pas suffisant à cause d'événements personnels. La majorité du jeu a été fait en dehors des cours dédiés au projet.
+
 \newpage
 \part{Annexes}
 \section{Planning}
 \subsection{Initial}
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=.924, angle=90]{planninggantt}
+	\includegraphics[width=\textwidth, angle=90]{planninggantt}
 	\caption{Planning initial du projet}
 	\label{planningintial}
 	\end{center}
 \end{figure}
 \newpage
 \subsection{Réel}
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=\textwidth, angle=90]{planningfinal}
+	\caption{Planning final du projet}
+	\label{planningfinal}
+	\end{center}
+\end{figure}
 \newpage
 \section{Références bibliographiques}
 \begin{enumerate}
